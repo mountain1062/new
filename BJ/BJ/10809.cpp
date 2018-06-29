@@ -10,6 +10,7 @@ int main() {
 		if (arr[input[s] - 'a'] != -1)continue;
 		arr[input[s] - 'a'] = s;
 		
+
 	}
 	for (int i = 0; i < 26; i++) {
 		cout << arr[i] << ' ';
