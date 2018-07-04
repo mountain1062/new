@@ -4,7 +4,7 @@ using namespace std;
 
 string input;
 int cnt[26];
-int temp, chk;
+int chk,temp;
 
 int main() {
 	ios::sync_with_stdio(0), cin.tie(0);
@@ -17,13 +17,19 @@ int main() {
 
 		cnt[chk]++;
 	}
+	int max = cnt[0];
+	bool overlap = false;
 	for (int i = 1; i < 26; i++) {
-		if (cnt[temp] == cnt[i] && cnt[temp] != 0) {
-			cout << '?';
-			return 0;
+		if (cnt[i] > max) {
+			max = cnt[i];
+			temp = i;
+			overlap = false;
 		}
-		else if (cnt[temp] < cnt[i]) temp = i;
+		else if (cnt[i] == max) {
+			overlap = true;
+		}
 	}
 	char output = 'A' + temp;
-	cout << output;
+	if(overlap == false) cout << output;
+	else cout << '?' ;
 }
