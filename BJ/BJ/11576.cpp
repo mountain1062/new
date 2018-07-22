@@ -5,7 +5,7 @@ using namespace std;
 
 int A_B, B_B, R;
 int Arr_A[25];
-int Arr_B[10];
+int Arr_B[25];
 int temp;
 
 int main() {
@@ -31,7 +31,7 @@ int main() {
 		t++;
 	}
 
-	for (int k = 9; k >= 0; k--) {
+	for (int k = 24; k >= 0; k--) {
 		if (Arr_B[k] != -1) cout << Arr_B[k]<<' ';
 	}
 
