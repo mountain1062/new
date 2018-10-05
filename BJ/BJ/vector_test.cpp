@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include<queue>
 using namespace std;
 struct T
 {
@@ -7,13 +8,15 @@ struct T
 	string b;
 	char c;
 }temp;
+queue<int>Q;
 vector <T> v;
 int main() {
-	temp.a = 1;
-	temp.b = "adf";
+	string A[2];
+	A[0] = "abcde";
+	A[1] = "12345";
+	cout << A[0][0] << '\n';
+	cout << A[0][5] << '\n';
 
-	v.push_back(temp);
-	temp.a = 2;
-	temp.b = "fsd";
-	v.push_back(temp);
+	cout << A[1][0] << '\n';
+	cout << A[1][4] << '\n';
 }
