@@ -1,22 +1,35 @@
 #include <iostream>
 #include <vector>
-#include<queue>
+#include <queue>
+#include <string.h>
 using namespace std;
-struct T
-{
-	int a;
-	string b;
-	char c;
-}temp;
-queue<int>Q;
-vector <T> v;
+int visit[10][10];
+int temp[10][10];
 int main() {
-	string A[2];
-	A[0] = "abcde";
-	A[1] = "12345";
-	cout << A[0][0] << '\n';
-	cout << A[0][5] << '\n';
-
-	cout << A[1][0] << '\n';
-	cout << A[1][4] << '\n';
+	int a = 1;
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			visit[i][j] = a++;
+		}
+	}
+	memcpy(temp, visit, sizeof(visit));
+	
+	
+	cout << "visit" << endl;
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			cout << visit[i][j] << ' ';
+		}
+		cout << '\n';
+	}
+	
+	
+	
+	cout << "temp" << endl;
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			cout<<temp[i][j]<<' ';
+		}
+		cout << '\n';
+	}
 }

@@ -15,16 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="vector_test.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="2174.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="14502.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="10026.cpp">
+    <ClCompile Include="vector_test.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="9663 -ing.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="SW5658.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
