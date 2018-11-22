@@ -3,63 +3,59 @@
 #include <algorithm>
 #include <vector>
 using namespace std;
-vector<int>v,tt;
-int N, Map[20][20], ST[10], LT[10], ST_sum, LT_sum, valance = 1e9, temp[4];
-int visit[10];
-int a[2];
-void go(int n,int s) {
-	if (n == 2) {
-		//cout << a[0] << ' ' << a[1] << endl;
-		ST_sum = ST_sum + Map[temp[0]][temp[1]] + Map[temp[1]][temp[0]];
-		LT_sum = LT_sum + Map[temp[2]][temp[3]] + Map[temp[2]][temp[3]];
-	}
-	else {
-		for (int i = s; i < N/2; i++) {
-			if (visit[i] == 0) {
-				visit[i] = 1;
-				temp[n] = ST[i];
-				temp[n + 2] = LT[i];
-				a[n] = i;
-				go(n + 1,i);
-				a[n] = 0;
-				temp[n + 2] = 0;
-				temp[n] = 0;
-				visit[i] = 0;
-			}
+vector<int>v, S_T, L_T;
+int N, Map[20][20], ST[10], LT[10], valance = 1e9,diff;
+int ST_sum, LT_sum;
+int Comb_m[20][20];
+
+void go() {
+	for (int i = 0; i < N / 2; i++) {
+		for (int j = i + 1; j < N / 2; j++) {
+			ST_sum = ST_sum + Map[S_T[i]][S_T[j]] + Map[S_T[j]][S_T[i]];
+			LT_sum = LT_sum + Map[L_T[i]][L_T[j]] + Map[L_T[j]][L_T[i]];
 		}
 	}
+}
 
+int comb(int n, int k) {
+	if (n == k) return 1;
+	else if (k == 0) return 0;
+	else if (n > k > 0) {
+		return comb(n - 1, k - 1) + comb(n - 1, k);
+	}
 }
 
 int main() {
 	ios::sync_with_stdio(0), cin.tie(0);
 	cin >> N;
-	int result,a,b;
-	for (int r = 0; r < N; r++)	{
+	for (int r = 0; r < N; r++) {
 		for (int c = 0; c < N; c++) {
 			cin >> Map[r][c];
 		}
-		v.push_back(r);
 	}
-	//조합 생성
+	for (int i = 0; i < N / 2; i++) { v.push_back(0); v.push_back(1); }
+	sort(v.begin(), v.end());
+
 	do {
-		for (int i = 0; i < N; i++) {
-			if (i < N / 2) 	ST[i] = v[i];
-			else LT[i - N / 2] = v[i];
+		for (int i = 0; i < v.size(); i++) {
+			if (v[i] == 0) S_T.push_back(i);
+			else L_T.push_back(i);
 		}
-		ST_sum = LT_sum = 0;
-		go(0, 0);
-		(ST_sum - LT_sum) > 0 ? (result = ST_sum - LT_sum) : (result = LT_sum - ST_sum);
+		go();
 		
-		if (valance > result) {
-			valance = result;
-			tt = v;
-			a = ST_sum;
-			b = LT_sum;
-		}
+		if (ST_sum - LT_sum > 0) diff = ST_sum - LT_sum;
+		else diff = LT_sum - ST_sum;
+
+		if (diff < valance) valance = diff;
+		
+		ST_sum = LT_sum = 0;
+		S_T.clear();
+		L_T.clear();
 	} while (next_permutation(v.begin(), v.end()));
-	cout << valance << endl;
-	for (int i = 0; i < N; i++) cout << tt[i] << ' ';
-	cout << endl;
-	cout << a << ' '<<b;
+
+	for (int i = 1; i < N; i++) {
+		Comb_m[i][i] = 1;
+	}
+	comb(2,1);
+	cout << valance;
 }
