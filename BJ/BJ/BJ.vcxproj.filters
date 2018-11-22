@@ -24,7 +24,19 @@
     <ClCompile Include="9663 -ing.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SW5658.cpp">
+    <ClCompile Include="2210.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="1759.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="16198.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="14501.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="15686.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
