@@ -24,7 +24,13 @@
     <ClCompile Include="9663 -ing.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SW5658.cpp">
+    <ClCompile Include="bubble.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="14888.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="14889.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
